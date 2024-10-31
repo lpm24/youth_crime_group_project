@@ -35,14 +35,14 @@ st.write(pd.DataFrame(list(data_dictionary.items()), columns=['Feature', 'Descri
 
 # Display Dataset
 st.subheader("Dataset Overview")
-dataset = pd.read_csv('../data/data.csv')  # Replace with the actual dataset file path
+dataset = pd.read_csv('../data/data.csv')
 st.dataframe(dataset)
 
 # Input Form for Prediction
 st.sidebar.header("User Input Features")
 
 def user_input_features():
-    state = st.sidebar.selectbox('Select State', ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY'])  # Replace with actual states
+    state = st.sidebar.selectbox('Select State', ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY'])
     total_pop = st.sidebar.number_input('Total Population', min_value=0, value=5000000)
     median_income = st.sidebar.number_input('Median Income', min_value=0, value=60000)
     poverty_rate = st.sidebar.number_input('Poverty Rate (%)', min_value=0.0, max_value=1.0, value=0.15)
