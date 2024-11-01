@@ -1,1 +1,3 @@
-.virtual_documents*
+.virtual_documents/*
+code/.ipynb_checkpoints/
+code/.virtual_documents/
