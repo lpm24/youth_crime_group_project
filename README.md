@@ -26,7 +26,7 @@ This analysis aims to answer the following question:
     - [Key Takeaways](#key-takeaways)
     - [Next Steps](#next-steps)
 6. [Setup Instructions and Software Requirements](#setup-instructions-and-software-requirements)
-
+## Executive Summary
 ### Introduction
 Youth crime poses significant challenges to communities, affecting social cohesion, economic stability, and public safety. Understanding the underlying causes is essential for developing effective prevention and intervention strategies. Research indicates that factors such as poverty, unemployment, lack of education, and certain demographic characteristics can contribute to higher crime rates among young adults. By analyzing data over a decade, this project seeks to uncover patterns and correlations that can inform targeted approaches to mitigate youth crime.
 
