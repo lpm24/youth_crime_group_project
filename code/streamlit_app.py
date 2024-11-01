@@ -39,7 +39,7 @@ dataset = pd.read_csv('../data/data.csv')
 st.dataframe(dataset)
 
 # Input Form for Prediction
-st.sidebar.header("User Input Features")
+st.sidebar.header("User Input")
 
 def user_input_features():
     state = st.sidebar.selectbox('Select State', ['AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA', 'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD', 'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ', 'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC', 'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY'])
@@ -79,3 +79,7 @@ prediction = model.predict(input_df)
 # Display prediction
 st.subheader("Prediction")
 st.write(f"Predicted Log Total Crime Rate: {prediction[0]:.2f}")
+
+# Calculate total crime count from the log prediction
+total_crime_count = 10 ** prediction[0]
+st.write(f"Predicted Total Crime Count: {total_crime_count:.0f}")
