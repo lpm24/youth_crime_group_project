@@ -1,7 +1,7 @@
 # Identifying Key Drivers of Youth Crime
 
 ## Problem Statement
-The goal of this project is to understand the factors that influence crime rates across different regions and times.
+In 2024, Kids First, a US NGO, was awarded a grant from the US Department of Justice (US DOJ) to investigate recent trends (years 2016 to 2022) in crime in young adults (ages 16 to 24) across the United States. We here at SAL Analytics were contracted by Kids First to perform an analysis using socioeconomic, educational attainment, and state demographic data to determine which factors had an impact on youth crime. By examining the strength of these relationships, this analysis will identify the key drivers of youth crime. The findings will provide Kids First with data-driven insights to determine the best allocation of grant resources to positively impact youth crime rates, such as for economic support, youth programs, and/or substance abuse treatment. Using the understandings gleaned from this analysis, Kids First will be able to provide evidence-based recommendations to the US DOJ, and to policymakers, educational institutions, and public safety organizations alike, in order to reduce crime in young adults.
 
 ## Research Question
 This analysis aims to answer the following question:  
@@ -99,23 +99,25 @@ We tested several regression models to analyze and predict target variables base
 
 #### Summary of Model Performance
 
-| **Model**                        | **R² Score (Train)** | **R² Score (Test)** | **Mean Squared Error (Train)** | **Mean Squared Error (Test)** | **Mean Absolute Error (Train)** | **Mean Absolute Error (Test)** |
-|----------------------------------|----------------------|---------------------|--------------------------------|-------------------------------|---------------------------------|--------------------------------|
-| **Linear Regression**            | 0.3001              | 0.3514             | 0.8777                         | 0.6599                        | 0.6902                          | 0.6135                          |
-| **Decision Tree**                | 0.5698              | 0.2556             | 0.5220                         | 1.0520                        | 0.4906                          | 0.6988                          |
-| **Grid Search Decision Tree**    | 0.1548              | 0.1824             | 1.0255                         | 1.1554                        | 0.7031                          | 0.7793                          |
-| **Random Forest**                | 0.6915              | 0.3192             | 0.3743                         | 0.9621                        | 0.3930                          | 0.6991                          |
-| **Grid Search Random Forest**    | 0.6702              | 0.3623             | 0.4002                         | 0.9012                        | 0.4164                          | 0.6908                          |
-| **Gradient Boosting**            | 1.0000              | 0.5669             | 1.703e-15                      | 0.6121                        | 3.263e-08                       | 0.5273                          |
-| **Grid Search Gradient Boosting**| 1.0000              | 0.3965             | 4.280e-06                      | 0.8528                        | 0.0018                          | 0.6218                          |
-| **XGBoost**                      | 0.9873              | 0.4906             | 0.0154                         | 0.7199                        | 0.0881                          | 0.5682                          |
-| **Grid Search XGBoost**          | 1.0000              | 0.5564             | 5.874e-07                      | 0.6269                        | 0.0005                          | 0.5392                          |
-| **Grid Search SVM**              | 0.7450              | 0.2080             | 0.3095                         | 1.1192                        | 0.1541                          | 0.6434                          |
-| **Stacking Model**               | 0.8967              | 0.5237             | 0.1253                         | 0.6732                        | 0.2341                          | 0.5671                          |
-| **Bagging XGBoost Model**        | 0.8967              | 0.5237             | 0.1253                         | 0.6732                        | 0.2341                          | 0.5671                          |
+| **Model**                      | **R² Score (Train)** | **R² Score (Test)** | **Mean Squared Error (Train)** | **Mean Squared Error (Test)** | **Mean Absolute Error (Train)** | **Mean Absolute Error (Test)** |
+|--------------------------------|----------------------|---------------------|--------------------------------|-------------------------------|---------------------------------|--------------------------------|
+| **Linear Regression**          | 0.3001              | 0.3514             | 0.8777                         | 0.6599                        | 0.6902                          | 0.6135                          |
+| **Ridge Regression**           | 0.2987              | 0.3505             | 0.8795                         | 0.6608                        | 0.6901                          | 0.6155                          |
+| **Decision Tree**              | 0.8134              | -0.2589            | 0.2340                         | 1.2808                        | 0.3617                          | 0.7551                          |
+| **Grid Search Decision Tree**  | 0.5915              | 0.2404             | 0.5124                         | 0.7729                        | 0.5127                          | 0.6127                          |
+| **Random Forest**              | 0.7677              | 0.5422             | 0.2913                         | 0.4658                        | 0.3736                          | 0.5101                          |
+| **Grid Search Random Forest**  | 0.8173              | 0.5628             | 0.2291                         | 0.4448                        | 0.3117                          | 0.4789                          |
+| **Gradient Boosting**          | 1.0000              | 0.4290             | 2.22e-16                       | 0.5810                        | 1.21e-08                        | 0.4908                          |
+| **Grid Search Gradient Boosting** | 0.9866          | 0.6333             | 0.0168                         | 0.3731                        | 0.0996                          | 0.4355                          |
+| **XGBoost**                    | 0.9264              | 0.4436             | 0.0924                         | 0.5661                        | 0.2153                          | 0.5207                          |
+| **Grid Search XGBoost**        | 0.9973              | 0.6552             | 0.0034                         | 0.3508                        | 0.0431                          | 0.4046                          |
+| **SVM Model**                  | 0.1780              | 0.6552             | 1.0309                         | 0.7231                        | 0.6300                          | 0.5612                          |
+| **Grid Search SVM**            | 0.7447              | 0.7151             | 0.3201                         | 0.2899                        | 0.1574                          | 0.3654                          |
+| **Bagging XGBoost Model**      | 0.9630              | 0.5698             | 0.0463                         | 0.4377                        | 0.1674                          | 0.4820                          |
 
-The Gradient Boosting Model (without Grid Search) performed best, with a test R² score of 0.5669, explaining 56.69% of the variance. It also achieved a lower test MSE of 0.6121 and an MAE of 0.5273, indicating strong predictive accuracy overall.
 
+
+The Grid Search SVM Model is the best performer, achieving the highest R² score (71.51%) and the lowest test errors (MSE: 0.2899, MAE: 0.3654), indicating strong predictive accuracy and low average error. This model best captures the variance in the data and makes more precise predictions.
 
 ### Conclusion
 The Gradient Boosting Model provided the most accurate predictions for identifying the factors associated with youth crime rates. Key drivers such as lack of school enrollment, foster care status, housing value index, and labor force participation emerged as significant predictors. These insights suggest that socioeconomic and educational factors play a critical role in influencing youth crime rates across U.S. states, highlighting areas where policy intervention may be beneficial.
